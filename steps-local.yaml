@@ -20,7 +20,7 @@ steps:
     curl https://repos.azul.com/azure-only/zulu/packages/zulu-7/7u191/$(archiveName) --output ./JDK7.$(archiveExtension) --retry 5 --retry-max-time 0
   displayName: 'Downloading JDK archive'
 
-- task: JavaToolInstaller@0
+- task: JavaToolInstallerM@0
   displayName: 'Unpack Java, inactive Cleaning'
   inputs:
     versionSpec: 7
@@ -30,7 +30,7 @@ steps:
     jdkDestinationDirectory: tempDir/
     cleanDestinationDirectory: false
 
-- task: JavaToolInstaller@0
+- task: JavaToolInstallerM@0
   displayName: 'Unpack Java, active Cleaning'
   inputs:
     versionSpec: 7
@@ -40,7 +40,7 @@ steps:
     jdkDestinationDirectory: tempDir/
     cleanDestinationDirectory: true
 
-- task: JavaToolInstaller@0
+- task: JavaToolInstallerM@0
   displayName: 'Unpack Java, active Cleaning'
   inputs:
     versionSpec: 7
@@ -50,7 +50,7 @@ steps:
     jdkDestinationDirectory: tempDir/
     cleanDestinationDirectory: true
 
-- task: JavaToolInstaller@0
+- task: JavaToolInstallerM@0
   displayName: 'Unpack Java, inactive Cleaning'
   inputs:
     versionSpec: 7
@@ -60,7 +60,7 @@ steps:
     jdkDestinationDirectory: tempDir/
     cleanDestinationDirectory: false
 
-- task: JavaToolInstaller@0
+- task: JavaToolInstallerM@0
   displayName: 'Unpack Java, inactive Cleaning'
   inputs:
     versionSpec: 7
