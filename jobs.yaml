@@ -1,0 +1,8 @@
+jobs:
+- job: Local_JDK
+  steps:
+  - template: steps-local.yaml
+
+- job: Azure_JDK
+  steps:
+  - template: steps-azure.yaml

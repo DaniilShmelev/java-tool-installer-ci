@@ -1,0 +1,21 @@
+stages:
+- stage: VS2017
+  dependsOn: []
+  pool:
+    vmImage: vs2017-win2016
+  jobs:
+  - template: ./jobs.yaml
+
+- stage: VS2019
+  dependsOn: []
+  pool:
+    vmImage: windows-2019
+  jobs:
+  - template: ./jobs.yaml
+
+- stage: ubuntu1804
+  dependsOn: []
+  pool:
+    vmImage: ubuntu-18.04
+  jobs:
+  - template: ./jobs.yaml
