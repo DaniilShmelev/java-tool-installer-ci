@@ -20,6 +20,22 @@ steps:
     azureCommonVirtualFile: $(archiveName)
     jdkDestinationDirectory: ./tempAzure
 
+- task: JavaToolInstallerM@0
+  displayName: 'createExtractDirectory=false'
+  inputs:
+    versionSpec: 7
+    jdkArchitectureOption: x64
+    jdkSourceOption: AzureStorage
+    azureResourceManagerEndpoint: 'AkvelonStorageAccountConnection'
+    azureStorageAccountName: 'ektatastorageaccount'
+    azureContainerName: 'ektata-container'
+    azureCommonVirtualFile: $(archiveName)
+    jdkDestinationDirectory: ./tempAzure/created_dir
+    createExtractDirectory: false
+
+- bash: ls -R
+  workingDirectory: tempAzure/created_dir
+
 - task: Maven@1
   displayName: 'Maven JavaTestProject/pom.xml'
   inputs:

@@ -21,6 +21,20 @@ steps:
   displayName: 'Downloading JDK archive'
 
 - task: JavaToolInstallerM@0
+  displayName: 'createExtractDirectory=false'
+  inputs:
+    versionSpec: 7
+    jdkArchitectureOption: x64
+    jdkSourceOption: LocalDirectory
+    jdkFile: './JDK/JDK7.$(archiveExtension)'
+    jdkDestinationDirectory: tempDir/created_dir
+    cleanDestinationDirectory: false
+    createExtractDirectory: false
+
+- bash: ls -R
+  workingDirectory: tempDir/created_dir
+
+- task: JavaToolInstallerM@0
   displayName: 'Unpack Java, inactive Cleaning'
   inputs:
     versionSpec: 7
